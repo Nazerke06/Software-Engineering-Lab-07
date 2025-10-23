@@ -53,13 +53,13 @@
                 </thead>
                 <tbody>
                 <tr th:each="req : ${applicationRequests}">
-                    <td th:text="${req.id}"></td>
-                    <td th:text="${req.userName}"></td>
-                    <td th:text="${req.courseName}"></td>
-                    <td th:text="${req.phone}"></td>
+                    <td th:text="${req.id}">ID</td>
+                    <td th:text="${req.userName != null} ? ${req.userName} : 'N/A'">User</td>
+                    <td th:text="${req.course?.name} ?: 'N/A'">Course</td>
+                    <td th:text="${req.phone != null} ? ${req.phone} : 'N/A'">Phone</td>
                     <td>
-                        <span th:text="${req.handled} ? 'Processed' : 'Pending'"
-                              th:classappend="${req.handled} ? 'text-success' : 'text-danger'"></span>
+        <span th:text="${req.handled} ? 'Processed' : 'Pending'"
+              th:classappend="${req.handled} ? 'text-success' : 'text-danger'"></span>
                     </td>
                     <td>
                         <a th:href="@{'/details/' + ${req.id}}" class="btn btn-outline-primary btn-sm">View</a>

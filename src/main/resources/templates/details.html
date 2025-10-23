@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<h1 th:text="'Application Request ID: ' + ${applicationRequest.id}"></h1>
+<ul>
+    <li th:each="op : ${operators}" th:text="${op.name + ' ' + op.surname + ' (' + op.department + ')'}"></li>
+</ul>
+
+<p><strong>User Name:</strong> <span th:text="${applicationRequest.userName}"></span></p>
+<p><strong>Course:</strong> <span th:text="${applicationRequest.courseName}"></span></p>
+<p><strong>Phone:</strong> <span th:text="${applicationRequest.phone}"></span></p>
+<p><strong>Commentary:</strong> <span th:text="${applicationRequest.commentary}"></span></p>
+<p><strong>Handled:</strong> <span th:text="${applicationRequest.handled}"></span></p>
+
+<form th:action="@{'/process/' + ${applicationRequest.id}}" method="post">
+    <button type="submit">Mark as Processed</button>
+</form>
+
+<form th:action="@{'/delete/' + ${applicationRequest.id}}" method="post">
+    <button type="submit">Delete</button>
+</form>
+
+<a href="/">Back to Home</a>
+</body>
+</html>

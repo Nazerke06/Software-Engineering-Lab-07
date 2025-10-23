@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Processed Requests</title>
+</head>
+<body>
+<h2>Processed Requests</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Course</th>
+        <th>Phone</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="req : ${applicationRequests}">
+        <td th:text="${req.id}"></td>
+        <td th:text="${req.userName}"></td>
+        <td th:text="${req.courseName}"></td>
+        <td th:text="${req.phone}"></td>
+        <td>Processed</td>
+    </tr>
+</table>
+<a href="/">Back to main</a>
+</body>
+</html>

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ApplicationRequestRepository extends JpaRepository<ApplicationRequest, Long> {
-    List<ApplicationRequest> findByHandled(boolean handled);
+    List<ApplicationRequest> findByHandled(boolean b);
 }
